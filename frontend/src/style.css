@@ -29,6 +29,7 @@ button { cursor: pointer; }
 .nav-button:hover, .nav-button.active { color: var(--primary-dark); background: var(--soft-pink); }
 .nav-button span { margin-right: 4px; }
 .settings-button { margin-left: 8px; border-left: 1px solid var(--line); border-radius: 0; }
+.install-button { color: var(--primary-dark); border-color: #efc8ce; background: #fff; }
 
 .app-main { min-height: calc(100vh - 126px); max-width: 1240px; margin: 0 auto; padding: 42px 5vw 56px; }
 .page-section { animation: rise .35s ease; }

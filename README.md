@@ -89,6 +89,45 @@ npm run dev
 
 http://localhost:5173
 
+## 在手机上使用和安装
+
+当前前端已经加入 PWA 支持。开发阶段可以让手机和电脑连接同一个 Wi-Fi，然后执行：
+
+第一个终端启动后端：
+
+```powershell
+cd love-map/backend
+.\.venv\Scripts\python.exe -m uvicorn app.main:app --host 0.0.0.0 --port 8000
+```
+
+第二个终端启动前端：
+
+```powershell
+cd love-map/frontend
+npm run dev -- --host 0.0.0.0
+```
+
+在电脑上执行 `ipconfig`，找到当前 Wi-Fi 的 IPv4 地址，例如 `192.168.1.100`。然后用手机浏览器打开：
+
+```text
+http://192.168.1.100:5173
+```
+
+手机和电脑必须在同一个局域网内，并且 Windows 防火墙需要允许 Node.js 使用专用网络。
+
+在手机浏览器中安装：
+
+- Android Chrome：菜单 → 添加到主屏幕 / 安装应用。
+- iPhone Safari：分享 → 添加到主屏幕。
+
+开发服务器适合局域网体验。要让手机在外网使用，需要把前端和 FastAPI 后端部署到服务器，并使用 HTTPS。照片和 SQLite 数据仍然保存在后端服务器上。
+
+如果前端和后端不是通过同一个域名访问，可以复制 `frontend/.env.example` 为 `frontend/.env`，设置：
+
+```text
+VITE_API_BASE_URL=http://服务器地址:8000
+```
+
 ## 数据文件位置
 
 第一次启动后会自动生成：

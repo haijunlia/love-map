@@ -1,4 +1,6 @@
 <script setup>
+import InstallAppButton from "./InstallAppButton.vue";
+
 defineProps({
   couple: { type: Object, default: null },
   activeView: { type: String, default: "dashboard" }
@@ -38,6 +40,7 @@ const menus = [
       >
         ⚙ 设置
       </button>
+      <InstallAppButton />
     </nav>
   </header>
 </template>

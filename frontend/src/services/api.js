@@ -1,5 +1,11 @@
+const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL || "").replace(/\/$/, "");
+
+function resolveUrl(url) {
+  return API_BASE_URL + url;
+}
+
 async function request(url, options = {}) {
-  const response = await fetch(url, {
+  const response = await fetch(resolveUrl(url), {
     headers: {
       ...(options.body instanceof FormData ? {} : { "Content-Type": "application/json" }),
       ...(options.headers || {})
